@@ -1,0 +1,15 @@
+.card {
+  display: flex;
+
+  &__table {
+    flex: 1 1 auto;
+  }
+
+  &__options {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+  }
+}

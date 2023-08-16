@@ -1,0 +1,23 @@
+<form class="tracking" [formGroup]="formGroup">
+  <span>Ids to track:</span>
+  <ul class="tracking__control-list" formArrayName="selectedIds">
+
+    <li *ngFor="let control of formGroup.controls.selectedIds.controls; index as i">
+      <input [formControlName]="i" placeholder="10 characters (a-z, 0-9)">
+      <button
+        [disabled]="formGroup.controls.selectedIds.controls.length === 1"
+        (click)="removeIdField(i)"
+      >-</button>
+    </li>
+
+  </ul>
+
+  <span class="tracking__count">{{ formGroup.controls.selectedIds.controls.length }} / {{ maxArrayLength }}</span>
+
+  <button
+    [disabled]="formGroup.controls.selectedIds.controls.length === maxArrayLength"
+    (click)="addIdField()"
+  >Add id</button>
+</form>
+
+<button [disabled]="formGroup.invalid" (click)="confirmTracking()">Start tracking</button>

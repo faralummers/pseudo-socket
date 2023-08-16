@@ -1,0 +1,34 @@
+:host {
+  display: inline-flex;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+input.ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
+.tracking {
+  display: flex;
+  flex-direction: column;
+  margin-right: 24px;
+
+  &__control-list {
+    padding: 0;
+
+    li {
+      list-style: none;
+      display: flex;
+      gap: 12px;
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  &__count {
+    align-self: end;
+    margin-bottom: 12px;
+  }
+}

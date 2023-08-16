@@ -1,0 +1,20 @@
+<table *ngIf="rows.length; else noData">
+  <tr><th>id</th><th>int</th><th>float</th><th>color</th><th>child</th></tr>
+  <tr *ngFor="let row of rows; trackBy: trackByFn">
+    <td>{{ row.id }}</td>
+    <td>{{ row.int }}</td>
+    <td>{{ row.float }}</td>
+    <td [ngStyle]="getStylesForColorCell(row.color)">{{ row.color.initialValue }}</td>
+    <th>
+      <table>
+        <tr><th>id</th><th>color</th></tr>
+        <td>{{ row.child.id }}</td>
+        <td [ngStyle]="getStylesForColorCell(row.child.color)">{{ row.child.color.initialValue }}</td>
+      </table>
+    </th>
+  </tr>
+</table>
+
+<ng-template #noData>
+  No data
+</ng-template>
